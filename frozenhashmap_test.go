@@ -60,6 +60,19 @@ func TestDB(t *testing.T) {
 	value, err = hashmap.GetString("Echo")
 	if (err != nil) {t.Error("Cannot get value 3")}
 	if (value != "OK-Echo!") {t.Error("Invalid data 3")}
+
+	value, err = hashmap.GetString("Unknown")
+	if (err == nil) {t.Error("No value should found for this")}
+
+	value, err = hashmap.GetString("Unknown1")
+	if (err == nil) {t.Error("No value should found for this")}
+
+	value, err = hashmap.GetString("Unknown2")
+	if (err == nil) {t.Error("No value should found for this")}
+
+	value, err = hashmap.GetString("Unknown3")
+	if (err == nil) {t.Error("No value should found for this")}
+
 	
 	hashmap.Free()
 }
